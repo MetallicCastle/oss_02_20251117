@@ -222,7 +222,9 @@ nice 값이 작을수록 높은 우선순위를 지닌다고 하며 0이 기본�
 <img width="736" height="193" alt="image" src="https://github.com/user-attachments/assets/efe23c84-8454-4295-9a7b-a7516b7abbb8" />
 
 권한이 없다고 거부당했습니다.
+
 ※ root 권한이 없다면 우선순위를 기본값보다 높이는 것은 불가능하며, 이를 위해서는 `sudo top`을 통하여 root권한으로 top을 실행해야합니다.
+
 그런데 root권한이 있는데도 거부당했네요
 
 그럼 우선순위를 낮춰보겠습니다.
