@@ -1,14 +1,14 @@
 # oss_02_20251117
 오픈소스 SW개론 실습 테스트
 ※ 레파지토리 이름은 레파지토리가 생성된 날짜입니다.
-* 레파지토리 주소: https://github.com/MetallicCastle/oss_02_20251117.git
+* 레파지토리 주소: <https://github.com/MetallicCastle/oss_02_20251117.git>
 
 ---
 
 # 과제2 11/19 - top, ps, jobs, kill에 대해서 조사하기
 ### 시작하기 앞서
 top 명령어에 대해 조사하기 앞서서 무작정 웹이나 블로그 내용만 넣는 것보단 한번쯤은 공신력 있는 자료에서 찾고싶은 명령어를 설명한 문서를 읽고 싶어서 곰곰히 생각해보았습니다. 
-그 결과 man 명령어와 --help 명령어면 내용은 짧지만 이 기능을 개발한 개발자가 작성해둔 설명이므로 공신력이 있지 않을까 해서 한번 사용해보도록 하겠습니다.
+그 결과 man 명령어와 --help 명령어면 내용은 이 기능을 개발한 개발자가 작성해둔 설명이므로 공신력이 있지 않을까 해서 한번 사용해보도록 하겠습니다.
 
 ```Shell
 man top
@@ -247,4 +247,46 @@ top 명령어를 종료하는 키는 `q`입니다.
 
 ---
 
+## ps 명령어
+
+<img width="270" height="87" alt="image" src="https://github.com/user-attachments/assets/76af4397-a16a-42ee-8875-eb304a2aa249" />
+
+ps를 한번 쳐보면 이런 결과가 나옵니다.
+
+top명령어의 기능중 하나인 현재 실행중인 프로세스를 표시하는 것 같습니다.
+특이사항으로는 top은 계속 모니터링하지만 ps는 그 순간의 결과를 출력할 뿐입니다.
+
+이번에도 아래의 명령어를 통해 사용방법을 얻어내 보겠습니다. 
+
+```Shell
+man ps > ps_manual.txt
+```
+
+Description의 일부분을 발췌해 보았습니다.
+
+```
+       ps displays information about a selection of the active processes.  If you want a repetitive update of the
+       selection and the displayed information, use top instead.
+```
+
+> ps는 현재 활성화된 프로세스들의 정보를 선별하여 표시합니다. 만약 선택된 정보가 반복적으로 업데이트되는(실시간) 화면을 원한다면 ps 대신 top 명령어를 사용하십시오.
+
+man 명령어에서도 실시간 업데이트되는 정보를 계속 보려면 top을 사용하라고 권장하네요.
+
+```
+-f     Do full-format listing.  This option can be combined with many other UNIX-style options to add
+              additional columns.  It also causes the command arguments to be printed.  When used with -L, the NLWP
+              (number of threads) and LWP (thread ID) columns will be added.  See the c option, the format keyword
+              args, and the format keyword comm.
+```
+
+> `-f` 전체 형식으로 목록을 출력합니다. 이 옵션은 다른 유닉스 스타일의 옵션을 함께 조합하여 추가적인 속성을 추가할 수 있으며, 명령어 실행 시 입력한 인자(arguments)까지 모두 출력하게 만듭니다. -L 옵션(스레드 보기)과 함께 사용하면, NLWP(스레드 개수)와 LWP(스레드 ID) 열이 목록에 추가됩니다. c 옵션, 포맷 키워드 args, 포맷 키워드 comm 항목을 참조하여 차이점을 확인하십시오.
+
+`ps -f` 처럼 `-f` 인자를 넣어주면 좀더 자세한 결과를 추가하며, 다른인자와 함께 조합하여 추가적인 속성을 넣을 수 있다고 합니다.
+
+```
+ -l     Long format.  The -y option is often useful with this.
+```
+
+long format입니다. `-y`옵션과 주로 함께 사용됩니다.
 
