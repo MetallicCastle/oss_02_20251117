@@ -31,7 +31,7 @@ man top
 ```Shell
 sudo unminimize
 ```
-를 치면 해결되지만 최소화된 컨테이너를 다시 원래 크기로 몸집을 불리는 행위이므로 함부로 치면 안되는 명령어 입니다.
+를 치면 해결되지만 최소화된 컨테이너를 다시 원래 크기로 몸집을 불리는 행위이므로 **함부로 치면 안되는 명령어** 입니다.
 저같은 경우엔 이 컨테이너에 중요한 작업물은 없어서 수틀리면 지우고 다시 생성하면 되므로 마음 편하게 입력하겠습니다.
 sudo는 docker 컨테이너 환경이므로 생략해야합니다.
 
@@ -133,7 +133,7 @@ cpu 부하에서 유저영역, 커널영역에 걸린 부하를 분리할 수는
   * `D`는 간섭이 불가한 sleep상태
   * `I`는 아무것도 하지 않는 유휴상태
   * `R`은 싱행중 상태
-  * `S`는 요텅이 올때까지 대기중인 sleep 상태
+  * `S`는 요청이 올때까지 대기중인 sleep 상태
   * `T`는 사용자에 의해 일시정지된 상태
   * `t`는 디버거등에 의해 일시정지된 상태
   * `Z`는 좀비상태
@@ -163,14 +163,21 @@ cpu 부하에서 유저영역, 커널영역에 걸린 부하를 분리할 수는
 top 화면 내에서 k를 입력하면 프로세스를 중단시킬 수 있습니다.
 
 마침 이전의 이미지속 디테일 영역에 실행중인 top프로세스가 있었으니 종료시켜 보도록 하겠습니다.
+
 <img width="759" height="228" alt="image" src="https://github.com/user-attachments/assets/308cc4c9-0ad8-4b6b-886e-285741105e88" />
+
 k키를 입력하니 이 부분이 추가된 모습을 볼 수 있습니다.
+
 화면에 표시된 pid `7932` 를 입력해보겠습니다.
+
 <img width="762" height="230" alt="image" src="https://github.com/user-attachments/assets/4b42ab14-2e6f-406a-b88a-8743329bd69b" />
+
 <img width="771" height="191" alt="image" src="https://github.com/user-attachments/assets/30fefcdf-22ec-4af1-9f66-ffc9541fdec8" />
 
 enter을 누르니 종료되는 모습을 볼 수 있습니다. 
+
 <img width="1074" height="365" alt="image" src="https://github.com/user-attachments/assets/fe036c0e-3bcc-4751-8499-76831796b0bb" />
+
 종료되어서 맨 아래에 명령어 입력하는 공간이 `root@687046470c4a:/tmp#`이와 같이 떴습니다.
 (※ kill하면 바로 명령어 입력창이 뜨는게 아니라 enter을 눌러야 종료된것에 반응하는지 몰랐어서 다시 재현했습니다. 이때는 pid가 7934이고 7934를 입력한것이 맞습니다.)
 
@@ -335,7 +342,7 @@ ps -elf
 ---
 ---
 
-## job 명령어
+## jobs 명령어
 
 ```shell
 man jobs > jobs_manual.txt
@@ -366,6 +373,7 @@ man jobs > jobs_manual.txt
 sleep 5&
 ```
 `sleep 5`를 백그라운드로 수행하라는 뜻으로 별의미 없이 5초간 대기하는 명령어입니다.
+
 <img width="376" height="111" alt="image" src="https://github.com/user-attachments/assets/f607ac8b-b03d-417f-86a4-5bb88cea0804" />
 
 위와같이 작업을 수행시킨뒤 jobs를 입력하면 5초간 대기합니다.
@@ -415,3 +423,64 @@ OPTIONS
 ---
 
 ## kill
+
+>```
+>DESCRIPTION
+>       The default signal for kill is TERM.  Use -l or -L to list available signals.  Particularly useful signals in-
+>       clude HUP, INT, KILL, STOP, CONT, and 0.  Alternate signals may be specified in three ways:  -9,  -SIGKILL  or
+>       -KILL.  Negative PID values may be used to choose whole process groups; see the PGID column in ps command out-
+>       put.  A PID of -1 is special; it indicates all processes except the kill process itself and init.
+>```
+
+> kill 명령어의 기본 신호는 TERM(Terminate)입니다.
+
+> 특히 유용한 신호로는 다음과 같은 것들이 있습니다. `HUP` `INT` `KILL` `STOP` `CONT` `0`
+
+> 신호를 지정할 때는 다음 세 가지 방법을 모두 쓸 수 있습니다. `-9` `-SIGNAL` `-KILL`
+
+> PID 앞에 -를 붙이면 프로세스 그룹에 해당되는 모든 프로세스를 죽입니다.
+
+> -1은 좀 특수한데, `init`프로세스를 제외한 모든 프로세스를 죽입니다.
+
+아래는 유용한 신호와 그 기능을 정리한 정보입니다. 
+
+|  신호    |   기능                                                 |
+|:--------:|:------------------------------------------------------:|
+| `HUB`    | Hang Up. 주로 설정 파일을 다시 읽게(Reload) 할 때 씀.    |
+| `INT`    | Interrupt. 키보드 `Ctrl + C` 를 누른 것과 같음.         |
+| `KILL`   | 강제 종료. 프로세스가 무시할 수 없음.                    |
+| `STOP`   | 일시 정지. 프로세스를 메모리에 둔 채 멈춤.                |
+| `CONT`   | 재시작(Continue). 멈춘(STOP) 프로세스를 다시 돌림.       |
+| `0`      | 체크용. 실제 종료하진 않고 프로세스가 살아있는지 확인만 함.|
+
+
+* `KILL` 명령어는 풀네임 `SIGKILL`, 신호번호 `-9` 로도 입력할 수 있다고 합니다.
+* 만약 kill 명령어가 옵션없이 사용된다면 강제로 종료하지는 않고 종료신호 요청을 보내는 방식을 사용한다고 합니다.
+
+<img width="370" height="114" alt="image" src="https://github.com/user-attachments/assets/bbb8c903-9ec0-4c3c-b8a8-d9449c84f65c" />
+
+* 180초동안 sleep 명령을 수행시켰지만 `kill 118`(118은 pid) 명령을 접수받아 `jobs`명령어로 확인해보면 Terminate 된 모습을 확인할 수 있습니다.
+
+※ 제 실력으로는 강제로 응답없는 프로그램을 만들기는 힘들어서 옵션들에 대한 실습은 생략하도록 하겠습니다.
+
+---
+---
+## 정리
+
+* `tops` : 작업괸리자 처럼 현재 실행중인 모든 프로세스의 계속 업데이트되는 세부정보를 실시간으로 확인하며 바로 종료시키거나 우선순위를 변경할 수 있습니다.
+* `ps` : 명령어가 입력된 순간의 프로세스들의 목록을 표시합니다.
+* `jobs` : 현재 쉘에서 작업중인 작업들의 목록과 완료후 보고를 확인합니다.
+* `kill` : PID를 입력하여 해당하는 프로세스를 종료시킵니다. option을 주면 강제로 종료시킬 수도 있습니다.
+* tops명령어가 가장 복잡하며 다양한 기능을 가지고 있으며 다른 3개의 명령어의 기능을 어느정도 대체하거나 포함하고 있었습니다.
+
+## 자료출처
+
+[tops 명령어](https://sabarada.tistory.com/146>)
+
+[ps 명령어](https://tigris-data-science.tistory.com/entry/Linux-ps-%EB%AA%85%EB%A0%B9%EC%96%B4)
+
+[ps 명령어](https://co-no.tistory.com/entry/Linux-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%9C%A0%EC%9A%A9%ED%95%9C-ps-%EB%AA%85%EB%A0%B9-%EC%98%88%EC%A0%9C)
+
+[jobs 명령어](https://monkeybusiness.tistory.com/630>)
+
+[kill 명령어](https://eunji-study.tistory.com/14)
