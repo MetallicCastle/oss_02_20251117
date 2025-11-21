@@ -49,23 +49,23 @@ man top > top_manual.txt
 모든 내용은 레파지토리에 업로드 해두겠습니다.
 
 일부인 Description 부분만 가져왔습니다.
-```
-DESCRIPTION
-       The  top  program  provides  a  dynamic  real-time  view  of  a running system.  It can display system summary
-       information as well as a list of processes or threads currently being managed by the Linux kernel.  The  types
-       of  system  summary information shown and the types, order and size of information displayed for processes are
-       all user configurable and that configuration can be made persistent across restarts.
-
-       The program provides a limited interactive interface for process manipulation as well as a much more extensive
-       interface  for  personal  configuration   --   encompassing  every  aspect of its operation.  And while top is
-       referred to throughout this document, you are free to name the program anything  you  wish.   That  new  name,
-       possibly  an  alias, will then be reflected on top's display and used when reading and writing a configuration
-       file.
-```
+>```
+>DESCRIPTION
+>       The  top  program  provides  a  dynamic  real-time  view  of  a running system.  It can display system summary
+>       information as well as a list of processes or threads currently being managed by the Linux kernel.  The  types
+>       of  system  summary information shown and the types, order and size of information displayed for processes are
+>       all user configurable and that configuration can be made persistent across restarts.
+>
+>       The program provides a limited interactive interface for process manipulation as well as a much more extensive
+>       interface  for  personal  configuration   --   encompassing  every  aspect of its operation.  And while top is
+>       referred to throughout this document, you are free to name the program anything  you  wish.   That  new  name,
+>       possibly  an  alias, will then be reflected on top's display and used when reading and writing a configuration
+>       file.
+>```
 
 >top 프로그램은 실행중인 시스템의 동적 실시간 뷰를 제공합니다. 이 프로그램은 시스템 요약 정보 뿐만아니라, 현재 리눅스 커널이 관리하고 있는 프로세스나 스레드들의 목록을 표시할 수 있습니다.
 >표시되는 시스템 요약 정보의 종류나 프로세스 정보의 종류, 순서, 크기는 모두 사용자가 설정할 수 있으며, 이 설정은 프로그램을 재시작해도 유지되도록 저장할 수 있습니다.
-
+>
 >이 프로그램은 프로세스를 조작(제어)하기위한 제한된 대화영 인터페이스를 제공하며, 작동의 모든 측면을 아우르는 훨씬 더 광범위한 개인 설정 인터페이스도 제공합니다.
 >이 문서 전반에 걸쳐 top이라고 지칭하고 있지만, 여러분은 이 프로그램의 이름을 원하는대로 자유롭게 지정할 수 있습니다. 그 새로운 이름(또는 별칭)은 top 화면 상단에 표시되며, 설정 파일을 읽거나 쓸 때도 사용됩니다.
 
@@ -115,21 +115,21 @@ cpu 부하에서 유저영역, 커널영역에 걸린 부하를 분리할 수는
   * SHR : 다른 프로세스와 공유하는 공유메모리상용량입니다.
   * %MEM : 총 RAM에서 RES가 사용되는 비율입니다.
 * S : 프로세스의 현재 상태를 의미합니다.
-  ```
-  29. S  --  Process Status
-           The status of the task which can be one of:
-               D = uninterruptible sleep
-               I = idle
-               R = running
-               S = sleeping
-               T = stopped by job control signal
-               t = stopped by debugger during trace
-               Z = zombie
-
-           Tasks shown as running should be more properly thought of as ready to run  --  their task_struct is simply
-           represented on the Linux run-queue.  Even without a true SMP machine, you may see numerous tasks  in  this
-           state depending on top's delay interval and nice value.
-  ```
+> ```
+> 29. S  --  Process Status
+>           The status of the task which can be one of:
+>               D = uninterruptible sleep
+>               I = idle
+>               R = running
+>               S = sleeping
+>               T = stopped by job control signal
+>               t = stopped by debugger during trace
+>               Z = zombie
+>
+>           Tasks shown as running should be more properly thought of as ready to run  --  their task_struct is simply
+>           represented on the Linux run-queue.  Even without a true SMP machine, you may see numerous tasks  in  this
+>           state depending on top's delay interval and nice value.
+>  ```
   * `D`는 간섭이 불가한 sleep상태
   * `I`는 아무것도 하지 않는 유휴상태
   * `R`은 싱행중 상태
@@ -145,21 +145,21 @@ cpu 부하에서 유저영역, 커널영역에 걸린 부하를 분리할 수는
 ---
 
 ##### 프로세스를 강제로 종료하는 내부 명령어
-```
-       *  k  :Kill-a-task
-              You will be prompted for a PID and then the signal to send.
-
-              Entering no PID or a negative number will be interpreted as the default shown in the prompt (the  first
-              task displayed).  A PID value of zero means the top program itself.
-
-              The  default  signal,  as  reflected  in the prompt, is SIGTERM.  However, you can send any signal, via
-              number or name.
-
-              If you wish to abort the kill process, do one of the following depending on your progress:
-                  1) at the pid prompt, type an invalid number
-                  2) at the signal prompt, type 0 (or any invalid signal)
-                  3) at any prompt, type <Esc>
-```
+>```
+>       *  k  :Kill-a-task
+>              You will be prompted for a PID and then the signal to send.
+>
+>              Entering no PID or a negative number will be interpreted as the default shown in the prompt (the  first
+>              task displayed).  A PID value of zero means the top program itself.
+>
+>              The  default  signal,  as  reflected  in the prompt, is SIGTERM.  However, you can send any signal, via
+>              number or name.
+>
+>              If you wish to abort the kill process, do one of the following depending on your progress:
+>                  1) at the pid prompt, type an invalid number
+>                  2) at the signal prompt, type 0 (or any invalid signal)
+>                  3) at any prompt, type <Esc>
+>```
 top 화면 내에서 k를 입력하면 프로세스를 중단시킬 수 있습니다.
 
 마침 이전의 이미지속 디테일 영역에 실행중인 top프로세스가 있었으니 종료시켜 보도록 하겠습니다.
@@ -177,22 +177,22 @@ enter을 누르니 종료되는 모습을 볼 수 있습니다.
 ---
 
 ##### 프로세스의 우선순위를 변경하는 방법
-```
- *  r  :Renice-a-Task
-              You will be prompted for a PID and then the value to nice it to.
-
-              Entering no PID or a negative number will be interpreted as the default shown in the prompt (the  first
-              task displayed).  A PID value of zero means the top program itself.
-
-              A  positive  nice  value will cause a process to lose priority.  Conversely, a negative nice value will
-              cause a process to be viewed more favorably by the kernel.  As a general rule, ordinary users can  only
-              increase the nice value and are prevented from lowering it.
-
-              If you wish to abort the renice process, do one of the following depending on your progress:
-                  1) at the pid prompt, type an invalid number
-                  2) at the nice prompt, type <Enter> with no input
-                  3) at any prompt, type <Esc>
-```
+>```
+> *  r  :Renice-a-Task
+>              You will be prompted for a PID and then the value to nice it to.
+>
+>              Entering no PID or a negative number will be interpreted as the default shown in the prompt (the  first
+>              task displayed).  A PID value of zero means the top program itself.
+>
+>              A  positive  nice  value will cause a process to lose priority.  Conversely, a negative nice value will
+>              cause a process to be viewed more favorably by the kernel.  As a general rule, ordinary users can  only
+>              increase the nice value and are prevented from lowering it.
+>
+>              If you wish to abort the renice process, do one of the following depending on your progress:
+>                  1) at the pid prompt, type an invalid number
+>                  2) at the nice prompt, type <Enter> with no input
+>                  3) at any prompt, type <Esc>
+>```
 r키를 누르면 Renice-a-Task로써 프로세스의 nice값을 변경할 수 있습니다. nice값은 프로세스의 우선순위를 결정하는 중요한 수치로써 
 -20 ~ 19의 값의 범위를 가진다고 합니다.
 nice 값이 작을수록 높은 우선순위를 지닌다고 하며 0이 기본값입니다.
@@ -264,29 +264,154 @@ man ps > ps_manual.txt
 
 Description의 일부분을 발췌해 보았습니다.
 
-```
-       ps displays information about a selection of the active processes.  If you want a repetitive update of the
-       selection and the displayed information, use top instead.
-```
+>```
+>       ps displays information about a selection of the active processes.  If you want a repetitive update of the
+>       selection and the displayed information, use top instead.
+>```
 
 > ps는 현재 활성화된 프로세스들의 정보를 선별하여 표시합니다. 만약 선택된 정보가 반복적으로 업데이트되는(실시간) 화면을 원한다면 ps 대신 top 명령어를 사용하십시오.
 
 man 명령어에서도 실시간 업데이트되는 정보를 계속 보려면 top을 사용하라고 권장하네요.
 
-```
--f     Do full-format listing.  This option can be combined with many other UNIX-style options to add
-              additional columns.  It also causes the command arguments to be printed.  When used with -L, the NLWP
-              (number of threads) and LWP (thread ID) columns will be added.  See the c option, the format keyword
-              args, and the format keyword comm.
-```
+>```
+>-f     Do full-format listing.  This option can be combined with many other UNIX-style options to add
+>              additional columns.  It also causes the command arguments to be printed.  When used with -L, the NLWP
+>              (number of threads) and LWP (thread ID) columns will be added.  See the c option, the format keyword
+>              args, and the format keyword comm.
+>```
 
 > `-f` 전체 형식으로 목록을 출력합니다. 이 옵션은 다른 유닉스 스타일의 옵션을 함께 조합하여 추가적인 속성을 추가할 수 있으며, 명령어 실행 시 입력한 인자(arguments)까지 모두 출력하게 만듭니다. -L 옵션(스레드 보기)과 함께 사용하면, NLWP(스레드 개수)와 LWP(스레드 ID) 열이 목록에 추가됩니다. c 옵션, 포맷 키워드 args, 포맷 키워드 comm 항목을 참조하여 차이점을 확인하십시오.
 
-`ps -f` 처럼 `-f` 인자를 넣어주면 좀더 자세한 결과를 추가하며, 다른인자와 함께 조합하여 추가적인 속성을 넣을 수 있다고 합니다.
+<img width="535" height="75" alt="image" src="https://github.com/user-attachments/assets/13689a50-ca83-4205-826d-730597fcdf46" />
 
-```
- -l     Long format.  The -y option is often useful with this.
-```
+`ps -f` 처럼 `-f` 인자를 넣어주면 좀더 자세한 결과를 추가하며, 다른인자와 함께 조합하여 추가적인 속성을 넣을 수 있다고 합니다.
+`UID`, `PID`, `PPID` 등이 함께 표시됩니다.
+
+`PPID`는 부모 프로세스 ID라고 합니다. 
+
+>```
+> -l     Long format.  The -y option is often useful with this.
+>```
 
 long format입니다. `-y`옵션과 주로 함께 사용됩니다.
+우선순위와 관련된 PRI와 NI값을 확인할 수 있습니다.
 
+`S`는 status 즉 상태를 의미하며 
+       
+* R : 실행중 혹은 실행할 수 있는 상태
+* S : 대기상태 (20초 이상)
+* I : 대기상태 (20초 이하)
+* T : 작업 제어에 의해 정지된 상태
+* D : 디스크 관련 대기 상태
+* P : 페이지 관련 대기 상태
+* X : 메모리 확보를 위한 대기 상태
+* \> : 인위적으로 우선 순위가 높아진 상태
+* Z : 좀비 프로세스
+
+~~PS : escape \\를 입력하니까 \> 문자가 인용구로 사용되지 않고 작성이 가능하네요\~~~
+
+<img width="645" height="77" alt="image" src="https://github.com/user-attachments/assets/69eb6656-3966-4b81-9db6-9f83df44d927" />
+
+>```
+>-e     Select all processes.  Identical to -A.
+>```
+
+모든 프로세스를 조회합니다.
+-A명령어도 같은 기능이라고 합니다.
+만약 이 옵션이 없다면 현재 사용자(shell)이 실행중인 프로세스만 보여준다고 합니다.
+
+<img width="263" height="75" alt="image" src="https://github.com/user-attachments/assets/abc3c450-bf7e-43fc-a428-f1e61ce81cfe" />
+
+아쉽지만 현재 다른 접속중인 쉘이 없어서 그냥 ps 명령어를 입력한 결과와 다른게 없습니다.
+만약 월요일 온라인 수업에서 ssh를 통한 연결을 제대로 숙지한뒤 여유가 되면 시도해 보도록 하겠습니다.
+
+```Shell
+ps -elf
+```
+`-f`설명할때처럼 이와같이 여러인수를 한번에 입력하면 모든프로세스의 자세한 정보를 조합하여 조회할 수 있습니다.
+
+<img width="776" height="79" alt="image" src="https://github.com/user-attachments/assets/2bb49baa-e768-45fa-86c0-b37c2e111065" />
+
+---
+---
+
+## job 명령어
+
+```shell
+man jobs > jobs_manual.txt
+```
+
+이번에도 마찬가지로 위 명령어로 사용법을 얻어줍니다.
+
+위 두 내용에 비해 내용이 짧습니다.
+
+>```
+>DESCRIPTION
+>       The jobs utility shall display the status of jobs that were started in the current shell environment; see Sec-
+>       tion 2.12, Shell Execution Environment.
+>
+>       When jobs reports the termination status of a job, the shell shall remove its process  ID  from  the  list  of
+>       those ``known in the current shell execution environment''; see Section 2.9.3.1, Examples.
+>
+>```
+
+> jobs 유틸리티는 현재 쉘 환경에서 시작된 작업(job)들의 상태를 표시합니다. (참조: 섹션 2.12 쉘 실행 환경)
+> jobs 명령어가 어떤 작업의 종료 상태(끝났음, 실패함 등)를 보고하고 나면, 쉘은 "현재 쉘 실행 환경에 알려진 목록"에서 해당 작업의 프로세스 ID(PID)를 제거합니다.
+
+결론만 말하면 jobs는 현제 쉘 환경에서만 실행중인 작업들을 표시하는 역할을 합니다.
+그리고 딱한번만 job 명령어를 실행하기 전까지 완료된 작업을 보고해줍니다.
+
+아래의 명령어가 있습니다.
+```shell
+sleep 5&
+```
+`sleep 5`를 백그라운드로 수행하라는 뜻으로 별의미 없이 5초간 대기하는 명령어입니다.
+<img width="376" height="111" alt="image" src="https://github.com/user-attachments/assets/f607ac8b-b03d-417f-86a4-5bb88cea0804" />
+
+위와같이 작업을 수행시킨뒤 jobs를 입력하면 5초간 대기합니다.
+
+<img width="382" height="100" alt="image" src="https://github.com/user-attachments/assets/b0d29729-a71e-4d31-bd7d-0313925f7c51" />
+
+5초가 경과된 후 다시 `jobs` 명령어를 실행한다면 
+
+<img width="408" height="149" alt="image" src="https://github.com/user-attachments/assets/b9b46346-428d-44c7-842a-cfb1f678973d" />
+
+Done 이라는 보고를 합니다.
+
+<img width="406" height="96" alt="image" src="https://github.com/user-attachments/assets/d27634a1-152f-4acc-b51f-b3ff53f041a9" />
+
+Done 이라는 보고가 완료된 후 jobs를 한번 더 입력해보면 완료 보고를 한 작업은 리스트에서 제거되어 더이상 보고되지 않는 모습입니다.
+
+```
+OPTIONS
+       The  jobs  utility  shall conform to the Base Definitions volume of POSIX.1-2017, Section 12.2, Utility Syntax
+       Guidelines.
+
+       The following options shall be supported:
+
+       -l        (The letter ell.) Provide more information about each job listed. This information shall include the
+                 job number, current job, process group ID, state, and the command that formed the job.
+
+       -p        Display only the process IDs for the process group leaders of the selected jobs.
+
+       By  default,  the  jobs  utility shall display the status of all stopped jobs, running background jobs and all
+       jobs whose status has changed and have not been reported by the shell.
+```
+
+> `-l` : 나열된 작업에 대해 더 많은 정보를 보여줍니다. 작업 번호, 현재 상태뿐만 아니라 프로세스 그룹 ID(사실상 PID) 등을 포함합니다.
+
+> `-p` : 선택된 작업들의 프로세스 ID(PID)만 표시합니다.
+
+<img width="432" height="116" alt="image" src="https://github.com/user-attachments/assets/5ac36343-847e-43ea-ac83-a93c0dec520b" />
+
+실행해보면 `-l`을 입력시 pid만 앞에 붙여서 조회 `-p`를 입력시 프로세스 ID만 띡하고 나오는 모습입니다.
+
+`man`에는 표시되지 않았지만 좀더 많은 옵션이 있습니다.
+* `-r` : 실행중인 작업만 출력
+* `-s` : 일시중지된 작업만 출력
+* `-n` : 가장 최근에 상태가 변경된 작업만출력
+
+---
+---
+
+## kill
