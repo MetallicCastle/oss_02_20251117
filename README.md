@@ -488,12 +488,12 @@ OPTIONS
 
 ## 참고 자료
 
-[tops 명령어](https://sabarada.tistory.com/146>)
+[tops 명령어](https://sabarada.tistory.com/146)
 
 [ps 명령어](https://tigris-data-science.tistory.com/entry/Linux-ps-%EB%AA%85%EB%A0%B9%EC%96%B4)
 
 [ps 명령어](https://co-no.tistory.com/entry/Linux-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%9C%A0%EC%9A%A9%ED%95%9C-ps-%EB%AA%85%EB%A0%B9-%EC%98%88%EC%A0%9C)
 
-[jobs 명령어](https://monkeybusiness.tistory.com/630>)
+[jobs 명령어](https://monkeybusiness.tistory.com/630)
 
 [kill 명령어](https://eunji-study.tistory.com/14)
