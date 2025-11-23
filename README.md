@@ -500,3 +500,6 @@ OPTIONS
 [jobs 명령어](https://monkeybusiness.tistory.com/630)
 
 [kill 명령어](https://eunji-study.tistory.com/14)
+
+<img width="810" height="394" alt="image" src="https://github.com/user-attachments/assets/4ff4ccf0-7453-4baa-bc40-0629b983bd39" />
+
