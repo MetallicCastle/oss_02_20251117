@@ -129,21 +129,21 @@ cpu 부하에서 유저영역, 커널영역에 걸린 부하를 분리할 수는
   * SHR : 다른 프로세스와 공유하는 공유메모리상용량입니다.
   * %MEM : 총 RAM에서 RES가 사용되는 비율입니다.
 * S : 프로세스의 현재 상태를 의미합니다.
-> ```
-> 29. S  --  Process Status
->           The status of the task which can be one of:
->               D = uninterruptible sleep
->               I = idle
->               R = running
->               S = sleeping
->               T = stopped by job control signal
->               t = stopped by debugger during trace
->               Z = zombie
->
->           Tasks shown as running should be more properly thought of as ready to run  --  their task_struct is simply
->           represented on the Linux run-queue.  Even without a true SMP machine, you may see numerous tasks  in  this
->           state depending on top's delay interval and nice value.
->  ```
+  > ```
+  > 29. S  --  Process Status
+  >           The status of the task which can be one of:
+  >               D = uninterruptible sleep
+  >               I = idle
+  >               R = running
+  >               S = sleeping
+  >               T = stopped by job control signal
+  >               t = stopped by debugger during trace
+  >               Z = zombie
+  >
+  >           Tasks shown as running should be more properly thought of as ready to run  --  their task_struct is simply
+  >           represented on the Linux run-queue.  Even without a true SMP machine, you may see numerous tasks  in  this
+  >           state depending on top's delay interval and nice value.
+  >  ```
   * `D`는 간섭이 불가한 sleep상태
   * `I`는 아무것도 하지 않는 유휴상태
   * `R`은 싱행중 상태
@@ -257,6 +257,15 @@ nice 값이 작을수록 높은 우선순위를 지닌다고 하며 0이 기본�
 <img width="737" height="201" alt="image" src="https://github.com/user-attachments/assets/e117d229-5e21-416e-9eac-d2264888cd0c" />
 
 성공적으로 적용되어 디테일 영역의 top 프로세스의 NI값이 1로 변경되었습니다. 우선순위가 내려왔다고 볼 수 있습니다.
+
+##### 이외의 명령어
+|키 | 설명|
+|:-:|:---:|
+|M  | 메모리를 기준으로 정렬     |
+|P  | CPU사용량을 기준으로 정렬  |
+|N  | 프로세스 ID를 기준으로 정렬|
+|T  | 실행시간을 기준으로 정렬   |
+|R  | 오름차순, 내림차순 변경    |
 
 ---
 
@@ -478,6 +487,11 @@ OPTIONS
 ※ 제 실력으로는 강제로 응답없는 프로그램을 만들기는 힘들어서 옵션들에 대한 실습은 생략하도록 하겠습니다.
 
 ※ 만약 프로세스 아이디 자리 앞에 %를 붙인다면 jobs에서 표기된 작업 번호로도 kill 명령어를 사용할 수 있습니다.
+
+```Shell
+kill -l
+```
+명령어를 입력하면 사용할 수 있는 신호와 그것을 의미하는 번호들을 열람할 수 있습니다.
 
 ---
 ---
